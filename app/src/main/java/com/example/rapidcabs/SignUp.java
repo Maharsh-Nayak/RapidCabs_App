@@ -1,6 +1,9 @@
 package com.example.rapidcabs;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +14,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SignUp extends AppCompatActivity {
 
@@ -29,6 +38,26 @@ public class SignUp extends AppCompatActivity {
         inputNumber = findViewById(R.id.phnum);
 
         submit = findViewById(R.id.SignUpSubmit);
+
+        ApiService api = RetroFitClient.getApiService();
+
+        api.getUsers().enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                if (response.isSuccessful()) {
+                    List<User> users = response.body();
+                    for (User u : users) {
+                        Log.d(TAG, "User: " + u.getName() + " (" + u.getEmail() + ")");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Log.e(TAG, "Error: " + t.getMessage());
+            }
+        });
+
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +79,23 @@ public class SignUp extends AppCompatActivity {
                 if(num==0){
                     Toast.makeText(SignUp.this, "Please enter you number", Toast.LENGTH_SHORT).show();
                 }
+
+                User newUser = new User(fname, email, num);
+
+                api.createUser(newUser).enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        if (response.isSuccessful()) {
+                            User created = response.body();
+                            Log.d(TAG, "Created User ID: " + created.getNum());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        Log.e(TAG, "Error: " + t.getMessage());
+                    }
+                });
             }
         });
 
