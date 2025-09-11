@@ -2,52 +2,54 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/phoneNumber"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2B2D30"
-    tools:context=".Login">
+    tools:context=".LoginOtp">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:text="Phone Number"
+        android:layout_marginTop="100dp"
+        android:text="Please Enter OTP"
         android:textColor="#E7E1E1"
         android:textColorHint="#BFA8A8"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/Next_btn_Login"
+        android:id="@+id/btn_otp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="124dp"
         android:backgroundTint="#100000"
         android:text="Next"
         android:textColorLink="#2A0707"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Otp_ip"
+        app:layout_constraintVertical_bias="0.801" />
 
     <EditText
-        android:id="@+id/phoneNumberOtp"
+        android:id="@+id/Otp_ip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
         android:ems="10"
-        android:hint="Number"
         android:inputType="number"
-        android:textColor="#F4EDED"
-        android:textColorHint="#F6F0F0"
+        android:textColor="#F6F3F3"
+        android:textColorHint="#FDFDFD"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.345" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

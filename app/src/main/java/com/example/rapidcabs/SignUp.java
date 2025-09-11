@@ -16,8 +16,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,7 +23,7 @@ import retrofit2.Response;
 public class SignUp extends AppCompatActivity {
 
     EditText inputEmail, inputNumber, inputFname, inputLname;
-    Button submit;
+    Button submit, login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +39,14 @@ public class SignUp extends AppCompatActivity {
         submit = findViewById(R.id.SignUpSubmit);
 
         ApiService api = RetroFitClient.getApiService();
+        login = findViewById(R.id.loginbtn);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(SignUp.this, Login.class);
+                startActivity(it);
+            }
+        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +77,7 @@ public class SignUp extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             ApiResponse created = response.body();
                             Log.d(TAG, "Created User ID: " + created.getResp());
-                            Intent it = new Intent(SignUp.this, MainActivity.class);
+                            Intent it = new Intent(SignUp.this, Home.class);
                             startActivity(it);
                         }
                     }
@@ -81,10 +87,11 @@ public class SignUp extends AppCompatActivity {
                         Log.e(TAG, "Error: " + t.getMessage());
                     }
                 });
+
             }
         });
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.phoneNumber), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
