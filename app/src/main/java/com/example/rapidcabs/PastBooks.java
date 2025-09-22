@@ -14,32 +14,9 @@ import android.view.ViewGroup;
 
 import com.example.rapidcabs.placeholder.PlaceholderContent;
 
-/**
- * A fragment representing a list of Items.
- */
 public class PastBooks extends Fragment {
-
-    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
     private int mColumnCount = 1;
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public PastBooks() {
-    }
-
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static PastBooks newInstance(int columnCount) {
-        PastBooks fragment = new PastBooks();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

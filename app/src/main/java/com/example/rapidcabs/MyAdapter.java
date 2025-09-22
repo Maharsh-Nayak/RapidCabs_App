@@ -16,9 +16,9 @@ public class MyAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         switch (position){
-            case 1 : return new BookingFrag();
-            case 2 : return new PastBooks();
-            case 3 : return new SettingFragment();
+            case 0 : return new BookingFrag();
+            case 1 : return new PastBooks();
+            case 2 : return new SettingFragment();
             default : return new BookingFrag();
         }
     }
