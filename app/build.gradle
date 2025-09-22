@@ -3,6 +3,9 @@ plugins {
     alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 }
 
+def MAPS_API_KEY = project.hasProperty("MAPS_API_KEY") ? project.MAPS_API_KEY : ""
+
+
 android {
     namespace 'com.example.rapidcabs'
     compileSdk 36
@@ -13,6 +16,9 @@ android {
         targetSdk 36
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [
+                MAPS_API_KEY: MAPS_API_KEY
+        ]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
