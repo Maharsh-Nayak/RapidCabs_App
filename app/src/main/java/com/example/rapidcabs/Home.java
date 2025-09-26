@@ -27,10 +27,6 @@ public class Home extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home2);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setIcon(R.drawable.applogo);
-        actionBar.setTitle("Welcome");
-
         tabLayout = findViewById(R.id.tabs);
         viewPager = findViewById(R.id.viewpages);
 
