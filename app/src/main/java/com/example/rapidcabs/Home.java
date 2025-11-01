@@ -1,6 +1,7 @@
 package com.example.rapidcabs;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -55,6 +56,7 @@ public class Home extends AppCompatActivity {
                 tabLayout.getTabAt(position).select();
             }
         });
+        viewPager.setUserInputEnabled(false);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

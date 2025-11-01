@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/ride_item_bg"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:clipToPadding="false">
+
+    <!-- Ride Date / Time -->
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12 Oct 2025, 10:30 AM"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Ride Distance / Fare -->
+    <TextView
+        android:id="@+id/distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12 km • ₹180"
+        android:textColor="#CCCCCC"
+        android:textSize="14sp" />
+
+</LinearLayout>

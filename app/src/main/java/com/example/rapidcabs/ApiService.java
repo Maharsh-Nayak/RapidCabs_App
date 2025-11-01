@@ -8,12 +8,14 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 
 public interface ApiService {
 
     @GET("UserLoginAuth")
-    Call<Integer> getUsers(@Query("num") String n);
+    Call<String> getUsers(@Query("num") String n);
 
     @FormUrlEncoded
     @POST("UserLoginAuth")
@@ -21,5 +23,13 @@ public interface ApiService {
             @Field("un") String un,
             @Field("em") String em,
             @Field("num") String num);
+
+    @GET("rides")
+    Call<ArrayList<PastRide>> getRides(@Query("id") int id);
+
+    @FormUrlEncoded
+    @POST("rides")
+    Call<ApiResponse> addRides(@Field("id") int id, @Field("date") Date date, @Field("distance") int distance);
+
 }
 

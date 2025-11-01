@@ -16,6 +16,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,15 +45,32 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Please enter phone number", Toast.LENGTH_SHORT).show();
                 }else{
                     ApiService api = RetroFitClient.getApiService();
-                    api.getUsers(number).enqueue(new Callback<Integer>() {
+                    api.getUsers(number).enqueue(new Callback<String>() {
                         @Override
-                        public void onResponse(Call<Integer> call, Response<Integer> response) {
-                            Integer resp = response.body();
-                            boolean exists = resp!=-1 ? true : false;
-                            if(exists){
-                                Intent it = new Intent(Login.this, LoginOtp.class);
-                                it.putExtra("Otp", resp);
-                                startActivity(it);
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            int status = response.code();
+                            Log.d("status", String.valueOf(status));
+                            if(status==200){
+                                String resp = response.body();
+                                Log.d("Response", response.body());
+                                try {
+                                    JSONObject ans = new JSONObject(resp);
+                                    int OTP = ans.getInt("number");
+                                    int uid = ans.getInt("uid");
+                                    String name = ans.getString("name");
+                                    String phoneNumber = ans.getString("phone");
+                                    String email = ans.getString("email");
+
+                                    Intent it = new Intent(Login.this, LoginOtp.class);
+                                    it.putExtra("Otp", OTP);
+                                    it.putExtra("uid", uid);
+                                    it.putExtra("name", name);
+                                    it.putExtra("phone", phoneNumber);
+                                    it.putExtra("email", email);
+                                    startActivity(it);
+                                } catch (JSONException e) {
+                                    throw new RuntimeException(e);
+                                }
                             }else{
                                 Toast.makeText(Login.this, "User doesn't exist", Toast.LENGTH_LONG).show();
                                 Intent it = new Intent(Login.this, SignUp.class);
@@ -59,18 +79,12 @@ public class Login extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onFailure(Call<Integer> call, Throwable t) {
+                        public void onFailure(Call<String> call, Throwable t) {
                             Log.e(TAG, "Error: " + t.getMessage());
                         }
                     });
                 }
             }
-        });
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.phoneNumber), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
         });
     }
 }

@@ -22,7 +22,7 @@ import retrofit2.Response;
 
 public class SignUp extends AppCompatActivity {
 
-    EditText inputEmail, inputNumber, inputFname, inputLname;
+    EditText inputEmail, inputNumber, inputFname;
     Button submit, login;
 
     @Override
@@ -33,7 +33,6 @@ public class SignUp extends AppCompatActivity {
 
         inputEmail = findViewById(R.id.email);
         inputFname = findViewById(R.id.Fname);
-        inputLname = findViewById(R.id.Lname);
         inputNumber = findViewById(R.id.phnum);
 
         submit = findViewById(R.id.SignUpSubmit);
@@ -55,13 +54,12 @@ public class SignUp extends AppCompatActivity {
                 String num;
                 email = String.valueOf(inputEmail.getText());
                 fname = String.valueOf(inputFname.getText());
-                lname = String.valueOf(inputLname.getText());
                 num = (String.valueOf(inputNumber.getText()));
 
                 if(email==null){
                     Toast.makeText(SignUp.this, "Please enter an email", Toast.LENGTH_SHORT).show();
                 }
-                if(fname==null || lname==null){
+                if(fname==null){
                     Toast.makeText(SignUp.this, "Please enter you name", Toast.LENGTH_SHORT).show();
                 }
                 if(num==null){

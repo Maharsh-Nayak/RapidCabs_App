@@ -3,46 +3,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#211E1E"
+    android:background="@drawable/bg_gradient"
     tools:context=".BookingFrag">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <!-- Start Location -->
         <EditText
             android:id="@+id/startLoc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/output_input_bg"
             android:hint="Start Location"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#DDDDDD"
             android:inputType="text"
-            android:textColor="#F8F8F8"
-            android:textColorHint="#FFFFFF" />
+            android:textSize="16sp" />
 
+        <!-- End Location -->
         <EditText
             android:id="@+id/endLoc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="EndLoc"
-            android:inputType="text"
+            android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/output_input_bg"
+            android:hint="End Location"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF" />
+            android:textColorHint="#DDDDDD"
+            android:inputType="text"
+            android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/button"
+        <!-- Action Buttons -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#100E0E"
-            android:text="Book"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:weightSum="2"
+            android:gravity="center_vertical">
 
+            <Button
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#FF6F00"
+                android:text="Select"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="#FF3D00"
+                android:text="Book"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- MapView -->
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:background="@color/black" />
     </LinearLayout>
 </FrameLayout>
