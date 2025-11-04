@@ -7,11 +7,11 @@ def MAPS_API_KEY = project.hasProperty("MAPS_API_KEY") ? project.MAPS_API_KEY : 
 
 
 android {
-    namespace 'com.example.rapidcabs'
+    namespace 'com.maharsh.rapidcabs'
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.example.rapidcabs"
+        applicationId "com.maharsh.rapidcabs"
         minSdk 24
         targetSdk 36
         versionCode 1

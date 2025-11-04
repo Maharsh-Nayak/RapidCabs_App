@@ -1,4 +1,4 @@
-package com.example.rapidcabs;
+package com.maharsh.rapidcabs;
 
 import static android.content.Context.MODE_PRIVATE;
 

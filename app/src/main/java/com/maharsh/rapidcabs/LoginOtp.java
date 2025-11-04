@@ -1,4 +1,4 @@
-package com.example.rapidcabs;
+package com.maharsh.rapidcabs;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,8 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-import com.google.android.libraries.places.api.Places;
 
 public class LoginOtp extends AppCompatActivity {
 

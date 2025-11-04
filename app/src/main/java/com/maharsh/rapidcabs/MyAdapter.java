@@ -1,6 +1,4 @@
-package com.example.rapidcabs;
-
-import android.provider.ContactsContract;
+package com.maharsh.rapidcabs;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

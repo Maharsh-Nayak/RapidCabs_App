@@ -1,4 +1,4 @@
-package com.example.rapidcabs;
+package com.maharsh.rapidcabs;
 
 import android.content.Context;
 

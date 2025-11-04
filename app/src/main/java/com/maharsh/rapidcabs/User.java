@@ -1,4 +1,4 @@
-package com.example.rapidcabs;
+package com.maharsh.rapidcabs;
 
 public class User {
     private int num;

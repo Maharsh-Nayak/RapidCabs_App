@@ -1,4 +1,4 @@
-package com.example.rapidcabs;
+package com.maharsh.rapidcabs;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -7,7 +7,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetroFitClient {
-    private static final String BASE_URL = "http://3.110.134.38:8080/Backend-1.0-SNAPSHOT/";
+    private static final String BASE_URL = "http://43.205.199.165:8080/Backend-1.0-SNAPSHOT/";
+//    private static final String BASE_URL = "http://10.0.0.1/Backend-1.0-SNAPSHOT/";
     private static Retrofit retrofit = null;
 
     private static Gson gson = new GsonBuilder()

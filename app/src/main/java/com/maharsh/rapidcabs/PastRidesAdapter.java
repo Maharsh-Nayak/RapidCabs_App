@@ -1,4 +1,4 @@
-package com.example.rapidcabs;
+package com.maharsh.rapidcabs;
 
 import android.content.Context;
 import android.icu.text.DateFormat;
@@ -11,9 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import java.util.Date;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class PastRidesAdapter extends ArrayAdapter<PastRide> {
 

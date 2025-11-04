@@ -24,6 +24,7 @@
         android:layout_marginTop="100dp"/>
 
     <!-- OTP Input -->
+
     <EditText
         android:id="@+id/Otp_ip"
         android:layout_width="0dp"
@@ -56,9 +57,9 @@
             android:id="@+id/text_send_otp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Didn't receive OTP?"
+            android:text="OTP will be sent to your mail"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/text_resend_otp"

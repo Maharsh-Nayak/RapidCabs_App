@@ -1,4 +1,4 @@
-package com.example.rapidcabs;
+package com.maharsh.rapidcabs;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -7,12 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -49,7 +44,7 @@ public class BookingConfirmation extends AppCompatActivity implements OnMapReady
         dist.setText(distance + " km " + distance + " min");
 
         TextView fare = findViewById(R.id.fare_estimate);
-        fare.setText("₹ "+distance);
+        fare.setText("₹ "+distance/100);
 
         SupportMapFragment mapFragment = (SupportMapFragment)
                 getSupportFragmentManager().findFragmentById(R.id.booking_map);
